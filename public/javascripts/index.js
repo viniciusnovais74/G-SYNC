@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!token) return;
 
+  const buttonDownload = document.getElementById("btn-download-all")
+
   buttonDownload.addEventListener("click", () => {
     const content = async () => {
       let data = [];

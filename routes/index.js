@@ -13,6 +13,7 @@ router.get("/", function (req, res, next) {
 });
 
 router.get("/callback", async function (req, res, next) {
+  if(!req.query.code) return res.redirect('/');
   const { tokens } = await oauth2Client.getToken(req.query.code);
   res.redirect(`/?json=${JSON.stringify(tokens)}`);
 });
