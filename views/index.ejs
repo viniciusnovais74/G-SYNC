@@ -1,52 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <script defer src="/javascripts/index.js"></script>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <div style="text-wrap: wrap; max-width: 100vw;">
-      
-      <p>
-        Bem vindo a aplicação o objetivo dela é realizar download dos arquivos
-        disponiveis no seu Google Drive
-      </p>
-      <% if (token.length>0) { %>
-        <code>
-          <%= token %>
-        </code>
-        <p>Deseja baixar no servidor ou pelo navegador o conteudo?</p>
-        <select>
-          <option>Browser</option>
-          <option>Server</option>
-        </select>
-        <a id="btn-download-all" class="button">Download All Files</a>
-        <% } else {%>
-          <p>Você não está logado</p>
-          <p>
-            Para realizar o download é necessário fazar login. Clique no botão abaixo
-          </p>
-          <a href="/auth/google" class="button">Login com Google</a>
-          <% } %>
-        </div>
-          <table>
-            <thead>
-              <tr>
-                <th>Id</th>
-                <th>Nome</th>
-                <th>MimeType</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% files.forEach(function(file) { %>
-          <tr>
-            <td><%= file.id %></td>
-            <td><%= file.name %></td>
-            <td><%= file.mimeType %></td>
-          </tr>
-        <% }); %>
-      </tbody>
+    <%- include('partials/header') %>
+    <div>
+      <h1><%= title %></h1>
+      <% if (!user) { %>
+      <p>Bem vindo ao app de sincronização com o Google Drive.</p>
+      <% } else { %>
+        <button id="btn download" onclick="downloadPage()">Baixar esses arquivos</button>
+        <%- include('partials/drive')%>
+        <%} %>
+    </div>
+    <%- include('partials/footer') %>
   </body>
 </html>

@@ -1,3 +1,9 @@
 node_modules
 backup
+docker
 .env
+certs/cloudflare*/*
+certs/letsencrypt/*
+users/*
+Dockerfile
+compose.yaml

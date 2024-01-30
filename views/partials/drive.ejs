@@ -1,0 +1,26 @@
+<!--CREATING TABLE WITH ID, NAME, MD5 MiMETYPE-->
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>MD5</th>
+            <th>MimeType</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for (var i = 0; i < files.length; i++) { %>
+            <tr>
+                <td><%= files[i].id %></td>
+                <td><%= files[i].name %></td>
+                <td><%= files[i].md5Checksum %></td>
+                <td><%= files[i].mimeType %></td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
+<!--Paginação-->
+<button class="btn btn-primary" onclick="previousPage()">Anterior</button>
+<button class="btn btn-primary" onclick="nextPage('<%= nextPage %>')">Próximo</button>
+
+<!-- Path: Images/G-SYNC/views/partials/footer.ejs -->

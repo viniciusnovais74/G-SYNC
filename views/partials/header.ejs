@@ -1,0 +1,15 @@
+<header>
+  <script src="https://accounts.google.com/gsi/client" async></script>
+  <h1>Google Syncronization</h1>
+  <div>
+    <% if (!user.access_token) { %>
+      <button type="button" onclick="window.location.replace('/auth/google')" class="google-sign-in-button" >
+        Sign in with Google
+      </button>      
+    <% } else { %>
+     <button type="button" onclick="window.location.replace('/auth/logout')" class="google-sign-in-button dark" active>
+       Welcome <%= user.name %>,  Sign out
+      </button>
+    <% } %>
+  </div>
+</header>

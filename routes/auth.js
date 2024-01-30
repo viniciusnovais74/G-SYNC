@@ -6,7 +6,10 @@ var router = express.Router();
 router.get("/google", function (req, res, next) {
   const url = oauth2Client.generateAuthUrl({
     access_type: "offline",
-    scope: ["https://www.googleapis.com/auth/drive.readonly"],
+    scope: [
+      "https://www.googleapis.com/auth/drive.readonly",
+      "https://www.googleapis.com/auth/userinfo.profile",
+    ],
   });
   res.redirect(url);
 });
